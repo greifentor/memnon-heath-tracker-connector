@@ -6,14 +6,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Getter
-class JdbcConfiguration {
+class HealthTrackerJdbcConfiguration {
 
-	@Value("${jdbc.datasource.password}")
+	@Value("${health-tracker.jdbc.datasource.password}")
 	private String password;
 
-	@Value("${jdbc.datasource.url}")
+	@Value("${health-tracker.jdbc.datasource.url}")
 	private String url;
 
-	@Value("${jdbc.datasource.username}")
+	@Value("${health-tracker.jdbc.datasource.username}")
 	private String username;
 }

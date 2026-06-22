@@ -20,11 +20,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HealthTrackerExternalErinnerungConnectorImpl implements ExternalErinnerungConnector {
 
-	private final JdbcConfiguration configuration;
+	private static final ConnectorId CONNECTOR_ID = new ConnectorId(UUID.randomUUID());
+
+	private final HealthTrackerJdbcConfiguration configuration;
 
 	@Override
 	public boolean canBeConfirmed() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -86,6 +88,6 @@ public class HealthTrackerExternalErinnerungConnectorImpl implements ExternalEri
 
 	@Override
 	public ConnectorId getId() {
-		return new ConnectorId(UUID.randomUUID());
+		return CONNECTOR_ID;
 	}
 }
