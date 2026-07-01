@@ -59,7 +59,7 @@ public class HealthTrackerExternalErinnerungConnectorImpl implements ExternalEri
 				configuration.getPassword()
 			);
 			PreparedStatement pstmt = conn.prepareStatement(
-				"select dc.DATE, dc.ID, concat(\"(\", dc.TIME, \") \", d.NAME, \" (\", dt.NAME, \")\") as DESCRIPTION " + //
+				"select dc.DATE, dc.ID, concat(\"(\", DATE_FORMAT(dc.TIME, \"%H:%i\"), \") \", d.NAME, \" (\", dt.NAME, \")\") as DESCRIPTION " + //
 				"from DOCTOR_CONSULTATION dc " + //
 				"join DOCTOR d on d.ID = dc.DOCTOR " + //
 				"join DOCTOR_TYPE dt on dt.ID = d.DOCTOR_TYPE " + //
